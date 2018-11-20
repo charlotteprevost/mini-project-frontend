@@ -7,12 +7,16 @@ class CreateMovie extends Component {
 
     this.state = {
       title: '',
-      description: ''
+      release_date: '',
+      synopsis: ''
     }
   }
+
+
   updateMovie = (e) => {
     this.setState({[e.currentTarget.name]: e.currentTarget.value})
   }
+
   render(){
     return (
       <Segment>
@@ -20,8 +24,10 @@ class CreateMovie extends Component {
         <Form onSubmit={this.props.addMovie.bind(null, this.state)}>
           <Label>Movie:</Label>
           <Form.Input type='text' name='title' value={this.state.title} onChange={this.updateMovie}/>
-          <Label>description:</Label>
-          <Form.Input type='text' name='description' value={this.state.description} onChange={this.updateMovie}/>
+          <Label>Release Date:</Label>
+          <Form.Input type='text' name='release_date' value={this.state.release_date} onChange={this.updateMovie}/>
+          <Label>Synopsis:</Label>
+          <Form.Input type='text' name='synopsis' value={this.state.synopsis} onChange={this.updateMovie}/>
           <Button color="green" type='Submit'>Create Movie</Button>
         </Form>
       </Segment>
